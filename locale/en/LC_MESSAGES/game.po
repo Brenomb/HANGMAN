@@ -1,0 +1,20 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: en\n"
+
+msgid "letters guessed: {}"
+msgstr "letters guessed: {}"
+
+msgid "Guess a letter \n"
+msgstr "Guess a letter \n"
+
+msgid "Incorrect guess! You have {} lives remaining."
+msgstr "Incorrect guess! You have {} lives remaining."
+
+msgid "You guessed the word: {}, Congratulations!"
+msgstr "You guessed the word: {}, Congratulations!"
+
+msgid "You ran out of lives! The word was: {}"
+msgstr "You ran out of lives! The word was: {}"

@@ -1,4 +1,15 @@
+#objetivos: Limpar o console, traduzir o jogo, tentar optimizar mais ainda
 import random
+import os
+import gettext
+
+lang_en = gettext.translation('game', localedir='locale', languages=['en'])
+lang_pt = gettext.translation('game', localedir='locale', languages=['pt'])
+
+lang = lang_en
+lang.install()
+
+clear = lambda: os.system('clear')
 
 lives = 6
 word_list = [
@@ -16,28 +27,33 @@ word_list = [
     "ZERO", "ONE", "TWO", "THREE", "FOUR", "FIVE", "SIX", "SEVEN", "EIGHT", "NINE", "TEN"
 ]
 
-word = word_list[random.randrange(0, len(word_list))]
+word = random.choice(word_list)
 blanks = "_" * len(word)
+letters_guessed = []
 
 while lives > 0:
+    print(f"letters guessed: {letters_guessed}")
     guess = input("Guess a letter \n").upper()
+    letters_guessed.append(guess)
     found = False
 
     for i, letter in enumerate(word):
         if letter == guess:
             blanks = blanks[:i] + letter + blanks[i + 1:]
             found = True
+            clear()
 
     if not found:
         lives -= 1
-        print("Incorrect guess! You have", lives, "lives remaining.")
+        print(f"Incorrect guess! You have {lives} lives remaining.")
+        clear()
 
     if "_" not in blanks:
-        print("You guessed the word:", word, "Congratulations!")
+        print(f"You guessed the word: {word}, Congratulations!")
+        clear()
         break
 
     print(blanks)
 
 if lives == 0:
-    print("You ran out of lives! The word was:", word)
-
+    print(f"You ran out of lives! The word was: {word}")
