@@ -3,13 +3,22 @@ import random
 import os
 import gettext
 
-lang_en = gettext.translation('game', localedir='locale', languages=['en'])
-lang_pt = gettext.translation('game', localedir='locale', languages=['pt'])
+os.environ['TERM'] = 'xterm'
+def clear():
+    if os.name == 'nt':
+        os.system('cls')
+    else:
+        os.system('clear')
 
-lang = lang_en
+translations = {
+    'en': gettext.translation('game', localedir='locale', languages=['en']),
+    'pt': gettext.translation('game', localedir='locale', languages=['pt'])
+}
+
+language = input("Please enter your preferred language (en/pt): ")
+
+lang = translations.get(language, translations['en'])
 lang.install()
-
-clear = lambda: os.system('clear')
 
 lives = 6
 word_list = [
@@ -33,6 +42,7 @@ letters_guessed = []
 
 while lives > 0:
     print(f"letters guessed: {letters_guessed}")
+    print(f"You have {lives} lives remaining.")
     guess = input("Guess a letter \n").upper()
     letters_guessed.append(guess)
     found = False
@@ -41,18 +51,15 @@ while lives > 0:
         if letter == guess:
             blanks = blanks[:i] + letter + blanks[i + 1:]
             found = True
-            clear()
 
     if not found:
         lives -= 1
-        print(f"Incorrect guess! You have {lives} lives remaining.")
-        clear()
 
     if "_" not in blanks:
         print(f"You guessed the word: {word}, Congratulations!")
-        clear()
         break
 
+    clear()
     print(blanks)
 
 if lives == 0:

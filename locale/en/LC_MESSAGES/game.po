@@ -10,8 +10,8 @@ msgstr "letters guessed: {}"
 msgid "Guess a letter \n"
 msgstr "Guess a letter \n"
 
-msgid "Incorrect guess! You have {} lives remaining."
-msgstr "Incorrect guess! You have {} lives remaining."
+msgid "You have {} lives remaining."
+msgstr "You have {} lives remaining."
 
 msgid "You guessed the word: {}, Congratulations!"
 msgstr "You guessed the word: {}, Congratulations!"

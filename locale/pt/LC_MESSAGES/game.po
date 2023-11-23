@@ -10,8 +10,8 @@ msgstr "letras adivinhadas: {}"
 msgid "Guess a letter \n"
 msgstr "Adivinhe uma letra \n"
 
-msgid "Incorrect guess! You have {} lives remaining."
-msgstr "Palpite incorreto! Você tem {} vidas restantes."
+msgid "You have {} lives remaining."
+msgstr "Você tem {} vidas restantes."
 
 msgid "You guessed the word: {}, Congratulations!"
 msgstr "Você adivinhou a palavra: {}, Parabéns!"
